@@ -5,8 +5,6 @@ import {
   ChefHat,
   LayoutDashboard,
   Utensils,
-  Smartphone,
-  Monitor,
   History,
   User,
   Bell,
@@ -24,8 +22,6 @@ export const Navbar: React.FC = () => {
     cart,
     setIsCartDrawerOpen,
     activeOrderId,
-    deviceView,
-    setDeviceView,
     notificationPermission,
     requestNotificationPermission,
     testNotification,
@@ -139,27 +135,8 @@ export const Navbar: React.FC = () => {
             </button>
           </nav>
 
-          {/* Zone 3: Actions (Cart Button + Phone/Laptop Preview Switcher) */}
+          {/* Zone 3: Actions */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Device frame preview toggle to verify both phone & laptop layouts */}
-            <button
-              onClick={() => setDeviceView(deviceView === 'responsive' ? 'mobile-mock' : 'responsive')}
-              title={deviceView === 'responsive' ? 'Switch to Mobile Phone Simulator' : 'Switch to Full Laptop View'}
-              className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 text-xs text-stone-400 hover:text-stone-200 bg-stone-800/80 hover:bg-stone-800 rounded-lg border border-stone-700/60 transition-colors whitespace-nowrap"
-            >
-              {deviceView === 'responsive' ? (
-                <>
-                  <Smartphone className="w-3.5 h-3.5 text-stone-400" />
-                  <span>Phone View</span>
-                </>
-              ) : (
-                <>
-                  <Monitor className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Laptop View</span>
-                </>
-              )}
-            </button>
-
             {/* Browser Notification Indicator / Permission Button */}
             {role === 'customer' && (
               <button
