@@ -110,7 +110,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setRole('kitchen')}
               aria-label="Open Kitchen Display System"
-              title="Open Kitchen Display System"
+              title="Open the live cook screen: received, preparing, ready, and completed orders"
               className={`flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all whitespace-nowrap shrink-0 border shadow-sm ${
                 role === 'kitchen'
                   ? 'bg-amber-500 text-stone-950 border-amber-300 shadow-amber-950/30'
@@ -118,20 +118,20 @@ export const Navbar: React.FC = () => {
               }`}
             >
               <ChefHat className="w-4 h-4" />
-              <span>Kitchen Display</span>
+              <span>Kitchen KDS</span>
               <span className="hidden xl:inline text-[10px] uppercase tracking-wide opacity-75">Live</span>
             </button>
 
             <button
               onClick={() => setRole('admin')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
                 role === 'admin'
                   ? 'bg-stone-800 text-amber-400 font-semibold'
                   : 'text-stone-300 hover:text-white hover:bg-stone-800/60'
               }`}
             >
               <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
-              <span>Admin</span>
+              <span>Manager Portal</span>
             </button>
           </nav>
 
