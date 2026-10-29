@@ -22,7 +22,6 @@ import {
 import { ToastPayload } from '../components/NotificationToast.tsx';
 
 export type RoleType = 'customer' | 'kitchen' | 'admin';
-export type DeviceView = 'responsive' | 'mobile-mock';
 export type CustomerTab = 'menu' | 'tracker' | 'history';
 
 const roleFromPath = (): RoleType => {
@@ -46,8 +45,6 @@ export interface CartItem {
 interface RestaurantContextType {
   role: RoleType;
   setRole: (role: RoleType) => void;
-  deviceView: DeviceView;
-  setDeviceView: (mode: DeviceView) => void;
   customerTab: CustomerTab;
   setCustomerTab: (tab: CustomerTab) => void;
 
@@ -112,7 +109,6 @@ const RestaurantContext = createContext<RestaurantContextType | undefined>(undef
 
 export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [role, setRoleState] = useState<RoleType>(roleFromPath);
-  const [deviceView, setDeviceView] = useState<DeviceView>('responsive');
   const [customerTab, setCustomerTabState] = useState<CustomerTab>('menu');
 
   // Menu state
@@ -623,8 +619,6 @@ export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       value={{
         role,
         setRole,
-        deviceView,
-        setDeviceView,
         customerTab,
         setCustomerTab,
         categories,
