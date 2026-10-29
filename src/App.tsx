@@ -8,7 +8,7 @@ import { AdminDashboard } from './components/AdminDashboard.tsx';
 import { CartDrawer } from './components/CartDrawer.tsx';
 import { PastOrders } from './components/PastOrders.tsx';
 import { NotificationToast } from './components/NotificationToast.tsx';
-import { ShoppingBag, Smartphone, Monitor, History } from 'lucide-react';
+import { ShoppingBag, History } from 'lucide-react';
 
 const MainLayout: React.FC = () => {
   const {
@@ -20,8 +20,6 @@ const MainLayout: React.FC = () => {
     setActiveOrderId,
     cart,
     setIsCartDrawerOpen,
-    deviceView,
-    setDeviceView,
     toastNotification,
     dismissToastNotification,
   } = useRestaurant();
@@ -145,44 +143,6 @@ const MainLayout: React.FC = () => {
       />
     </div>
   );
-
-  // If mobile simulator view is toggled, render inside an iPhone/device frame shell
-  if (deviceView === 'mobile-mock') {
-    return (
-      <div className="min-h-screen bg-stone-900 py-8 px-4 flex flex-col items-center justify-center">
-        <div className="mb-4 flex items-center justify-between w-full max-w-sm text-xs text-stone-400">
-          <div className="flex items-center gap-2">
-            <Smartphone className="w-4 h-4 text-amber-400" />
-            <span className="font-semibold text-stone-200">Phone View Simulator</span>
-          </div>
-          <button
-            onClick={() => setDeviceView('responsive')}
-            className="flex items-center gap-1 text-amber-400 hover:underline"
-          >
-            <Monitor className="w-3.5 h-3.5" />
-            <span>Switch to Laptop View</span>
-          </button>
-        </div>
-
-        {/* Mobile Mock Container */}
-        <div className="w-full max-w-sm h-[840px] bg-stone-950 border-4 border-stone-800 rounded-[40px] shadow-2xl overflow-hidden relative flex flex-col ring-8 ring-stone-950/40">
-          {/* Phone Speaker Notch */}
-          <div className="h-6 bg-stone-950 flex items-center justify-center relative shrink-0 z-50">
-            <div className="w-20 h-3.5 bg-stone-900 rounded-full" />
-          </div>
-
-          <div className="flex-1 overflow-y-auto scrollbar-none">
-            {appContent}
-          </div>
-
-          {/* Phone Bottom Home Bar */}
-          <div className="h-5 bg-stone-950 flex items-center justify-center shrink-0 z-50">
-            <div className="w-32 h-1 bg-stone-700 rounded-full" />
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return appContent;
 };
