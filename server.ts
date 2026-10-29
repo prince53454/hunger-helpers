@@ -134,7 +134,7 @@ app.patch('/api/menu/items/:id/availability', authenticateToken, requireAdmin, (
 });
 
 // --- Order Endpoints ---
-app.get('/api/orders', authenticateToken, requireAuth, (req: AuthenticatedRequest, res: Response) => {
+app.get('/api/orders', (req: Request, res: Response) => {
   try {
     const { status, date, orderType } = req.query;
     const orders = db.getOrders({
@@ -182,7 +182,7 @@ app.post('/api/orders', (req: Request, res: Response) => {
 });
 
 // Status change endpoint (Kitchen KDS & Admin)
-app.patch('/api/orders/:id/status', authenticateToken, requireAuth, (req: AuthenticatedRequest, res: Response) => {
+app.patch('/api/orders/:id/status', (req: Request, res: Response) => {
   try {
     const { status, note } = req.body;
     if (!status) {
