@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 bg-stone-900 text-stone-100 border-b border-stone-800 backdrop-blur-md bg-opacity-95 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
+        <div className="flex items-center h-16 gap-3">
           
           {/* Zone 1: Brand Wordmark */}
           <div className="flex items-center gap-3 shrink-0">
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Zone 2: Role & View Navigation */}
-          <nav className="flex items-center gap-1 sm:gap-2 overflow-x-auto py-1 scrollbar-none">
+          <nav className="flex flex-1 min-w-0 items-center justify-center gap-1 overflow-x-auto py-1 scrollbar-none">
             <button
               onClick={() => {
                 setRole('customer');
@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setRole('kitchen')}
               aria-label="Open Kitchen Display System"
               title="Open Kitchen Display System"
-              className={`flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all whitespace-nowrap shrink-0 border shadow-sm ${
+              className={`flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all whitespace-nowrap shrink-0 border shadow-sm ${
                 role === 'kitchen'
                   ? 'bg-amber-500 text-stone-950 border-amber-300 shadow-amber-950/30'
                   : 'bg-amber-600 hover:bg-amber-500 text-stone-950 border-amber-500 hover:shadow-md hover:-translate-y-0.5'
@@ -136,7 +136,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Zone 3: Actions */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             {/* Browser Notification Indicator / Permission Button */}
             {role === 'customer' && (
               <button
