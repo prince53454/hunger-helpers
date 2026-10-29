@@ -1,0 +1,8 @@
+{
+  "name": "Hunger Helpers - Restaurant Ordering & Kitchen System",
+  "description": "Restaurant ordering and operations platform with customer menu, live kitchen display, order tracking, and admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

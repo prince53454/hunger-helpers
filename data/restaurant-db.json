@@ -1,0 +1,1103 @@
+{
+  "categories": [
+    {
+      "id": "starters",
+      "name": "Small Plates & Starters",
+      "description": "Freshly prepared starters and sharing bites",
+      "icon": "Salad",
+      "sortOrder": 1
+    },
+    {
+      "id": "mains",
+      "name": "Mains & Signatures",
+      "description": "Handcrafted pasta, wood-fired mains & chef specialties",
+      "icon": "UtensilsCrossed",
+      "sortOrder": 2
+    },
+    {
+      "id": "pizza-burgers",
+      "name": "Artisan Pizzas & Burgers",
+      "description": "Slow-fermented dough pizzas and brioche wagyu burgers",
+      "icon": "Pizza",
+      "sortOrder": 3
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts & Sweets",
+      "description": "House-made patisserie and seasonal desserts",
+      "icon": "IceCream2",
+      "sortOrder": 4
+    },
+    {
+      "id": "beverages",
+      "name": "Drinks & Refreshments",
+      "description": "Craft mocktails, artisanal sodas, wine & coffee",
+      "icon": "Coffee",
+      "sortOrder": 5
+    }
+  ],
+  "menuItems": [
+    {
+      "id": "truffle-pappardelle",
+      "categoryId": "mains",
+      "name": "Truffle Pappardelle",
+      "description": "Handmade wide ribbon pasta, shaved black Umbrian truffles, 24-month aged parmesan cream & wild thyme microgreens.",
+      "basePrice": 18,
+      "image": "/src/assets/images/dish_truffle_pasta_1793287332343.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg"
+      ],
+      "prepTimeMinutes": 14,
+      "popular": true,
+      "variants": [
+        {
+          "id": "half",
+          "name": "Half Plate (Tasting)",
+          "price": 16
+        },
+        {
+          "id": "full",
+          "name": "Full Plate (Entrée)",
+          "price": 26.5
+        }
+      ]
+    },
+    {
+      "id": "woodfired-margherita",
+      "categoryId": "pizza-burgers",
+      "name": "Wood-Fired Margherita",
+      "description": "San Marzano D.O.P. tomato sauce, fresh buffalo mozzarella, aromatic sweet basil & extra virgin olive oil on blistered leopard crust.",
+      "basePrice": 16,
+      "image": "/src/assets/images/dish_woodfired_pizza_1793287333703.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg"
+      ],
+      "prepTimeMinutes": 12,
+      "popular": true,
+      "variants": [
+        {
+          "id": "regular",
+          "name": "10\" Personal (6 Slices)",
+          "price": 15.5
+        },
+        {
+          "id": "large",
+          "name": "14\" Sharing (8 Slices)",
+          "price": 22
+        }
+      ]
+    },
+    {
+      "id": "wagyu-smash-burger",
+      "categoryId": "pizza-burgers",
+      "name": "Brioche Wagyu Smash Burger",
+      "description": "Double seared wagyu beef patties, sharp melted cave cheddar, crispy shallots, house dill pickles and smoky truffle aioli on toasted potato brioche.",
+      "basePrice": 17.5,
+      "image": "/src/assets/images/dish_wagyu_burger_1793287333993.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "non-veg"
+      ],
+      "prepTimeMinutes": 15,
+      "popular": true,
+      "variants": [
+        {
+          "id": "single",
+          "name": "Single Patty (Classic)",
+          "price": 17.5
+        },
+        {
+          "id": "double",
+          "name": "Double Patty (Signature)",
+          "price": 23
+        }
+      ]
+    },
+    {
+      "id": "espresso-berry-tiramisu",
+      "categoryId": "desserts",
+      "name": "Espresso Berry Tiramisu",
+      "description": "Single-origin espresso soaked savoiardi biscuits, whipped mascarpone cream, Dutch cocoa dusting, served with fresh raspberries and garden mint.",
+      "basePrice": 11,
+      "image": "/src/assets/images/dish_berry_tiramisu_1793287334194.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg"
+      ],
+      "prepTimeMinutes": 6,
+      "popular": true,
+      "variants": [
+        {
+          "id": "single",
+          "name": "Single Portion",
+          "price": 11
+        },
+        {
+          "id": "duo",
+          "name": "Duo Sharing Board",
+          "price": 19
+        }
+      ]
+    },
+    {
+      "id": "crispy-calamari",
+      "categoryId": "starters",
+      "name": "Salt & Pepper Monterey Calamari",
+      "description": "Flash-fried tender squid tossed with roasted garlic crumbs, scallions, smoked chili flakes and charred lemon aioli.",
+      "basePrice": 14,
+      "image": "/images/crispy-calamari.webp",
+      "isAvailable": true,
+      "dietary": [
+        "non-veg",
+        "spicy"
+      ],
+      "prepTimeMinutes": 10,
+      "popular": false,
+      "variants": [
+        {
+          "id": "half",
+          "name": "Half Basket",
+          "price": 10.5
+        },
+        {
+          "id": "full",
+          "name": "Full Basket",
+          "price": 16.5
+        }
+      ]
+    },
+    {
+      "id": "burrata-caprese",
+      "categoryId": "starters",
+      "name": "Pugliese Burrata & Heirloom Tomatoes",
+      "description": "Creamy burrata heart, marinated heirloom cherry tomatoes, cold-pressed basil oil, aged balsamic glaze and grilled sourdough crostini.",
+      "basePrice": 15,
+      "image": "/images/burrata-caprese.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg",
+        "gluten-free"
+      ],
+      "prepTimeMinutes": 8,
+      "popular": true,
+      "variants": [
+        {
+          "id": "regular",
+          "name": "Standard Plate",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": "wild-mushroom-risotto",
+      "categoryId": "mains",
+      "name": "Acquerello Wild Mushroom Risotto",
+      "description": "Carnaroli aged rice slowly simmered with chanterelles, porcini broth, cold churned butter, pecorino romano and crispy sage.",
+      "basePrice": 21,
+      "image": "/images/wild-mushroom-risotto.webp",
+      "isAvailable": true,
+      "dietary": [
+        "veg",
+        "gluten-free"
+      ],
+      "prepTimeMinutes": 18,
+      "popular": false,
+      "variants": [
+        {
+          "id": "half",
+          "name": "Half Plate",
+          "price": 14.5
+        },
+        {
+          "id": "full",
+          "name": "Full Plate",
+          "price": 23.5
+        }
+      ]
+    },
+    {
+      "id": "hibiscus-mint-cooler",
+      "categoryId": "beverages",
+      "name": "Sparkling Hibiscus Mint Cooler",
+      "description": "Organic steeped hibiscus petals, fresh crushed spearmint, Key lime juice, cane syrup and sparkling mineral water over crushed ice.",
+      "basePrice": 7,
+      "image": "/images/hibiscus-mint-cooler.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "vegan"
+      ],
+      "prepTimeMinutes": 4,
+      "popular": true,
+      "variants": [
+        {
+          "id": "glass",
+          "name": "Glass (12 oz)",
+          "price": 7
+        },
+        {
+          "id": "pitcher",
+          "name": "Sharing Carafe (32 oz)",
+          "price": 16
+        }
+      ]
+    },
+    {
+      "id": "cold-brew-tonic",
+      "categoryId": "beverages",
+      "name": "Citrus Cold Brew & Elderflower Tonic",
+      "description": "24-hour slow steep Ethiopian cold brew layered over botanical elderflower tonic and expressed orange peel.",
+      "basePrice": 6.5,
+      "image": "/images/cold-brew-tonic.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "vegan"
+      ],
+      "prepTimeMinutes": 3,
+      "popular": false,
+      "variants": [
+        {
+          "id": "regular",
+          "name": "Regular Glass",
+          "price": 6.5
+        }
+      ]
+    },
+    {
+      "id": "tomato-basil-bruschetta",
+      "categoryId": "starters",
+      "name": "Tomato & Basil Bruschetta",
+      "description": "Toasted sourdough topped with ripe tomatoes, fresh basil, garlic, and extra-virgin olive oil.",
+      "basePrice": 10,
+      "image": "/images/tomato-bruschetta.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "vegan"
+      ],
+      "prepTimeMinutes": 7,
+      "popular": true,
+      "variants": [
+        {
+          "id": "three-pieces",
+          "name": "3 Pieces",
+          "price": 10
+        },
+        {
+          "id": "six-pieces",
+          "name": "6 Pieces",
+          "price": 18
+        }
+      ]
+    },
+    {
+      "id": "lemon-herb-salmon",
+      "categoryId": "mains",
+      "name": "Lemon Herb Grilled Salmon",
+      "description": "Grilled salmon with lemon, garden herbs, seasonal vegetables, and creamy potato purée.",
+      "basePrice": 25,
+      "image": "/images/lemon-herb-salmon.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "non-veg",
+        "gluten-free"
+      ],
+      "prepTimeMinutes": 19,
+      "popular": true,
+      "variants": [
+        {
+          "id": "regular",
+          "name": "Regular Fillet",
+          "price": 25
+        },
+        {
+          "id": "large",
+          "name": "Large Fillet",
+          "price": 32
+        }
+      ]
+    },
+    {
+      "id": "roasted-vegetable-flatbread",
+      "categoryId": "pizza-burgers",
+      "name": "Roasted Garden Flatbread",
+      "description": "Crisp flatbread with roasted seasonal vegetables, mozzarella, basil, and balsamic glaze.",
+      "basePrice": 15,
+      "image": "/images/roasted-vegetable-flatbread.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg"
+      ],
+      "prepTimeMinutes": 12,
+      "popular": false,
+      "variants": [
+        {
+          "id": "personal",
+          "name": "Personal",
+          "price": 15
+        },
+        {
+          "id": "sharing",
+          "name": "Sharing",
+          "price": 22
+        }
+      ]
+    },
+    {
+      "id": "chocolate-lava-cake",
+      "categoryId": "desserts",
+      "name": "Warm Chocolate Lava Cake",
+      "description": "Warm dark chocolate cake with a molten center, vanilla ice cream, and berry coulis.",
+      "basePrice": 12,
+      "image": "/images/chocolate-lava-cake.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg"
+      ],
+      "prepTimeMinutes": 8,
+      "popular": true,
+      "variants": [
+        {
+          "id": "single",
+          "name": "Single Cake",
+          "price": 12
+        },
+        {
+          "id": "two-cakes",
+          "name": "Two Cakes",
+          "price": 21
+        }
+      ]
+    },
+    {
+      "id": "sparkling-lemonade",
+      "categoryId": "beverages",
+      "name": "Sparkling Lemon & Mintade",
+      "description": "Fresh lemon juice, sparkling water, garden mint, and a touch of cane sugar.",
+      "basePrice": 6,
+      "image": "/images/sparkling-lemonade.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "prepTimeMinutes": 3,
+      "popular": false,
+      "variants": [
+        {
+          "id": "glass",
+          "name": "Glass (12 oz)",
+          "price": 6
+        },
+        {
+          "id": "pitcher",
+          "name": "Pitcher (32 oz)",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": "crispy-arancini",
+      "categoryId": "starters",
+      "name": "Crispy Mozzarella Arancini",
+      "description": "Golden risotto bites filled with mozzarella, served with slow-cooked tomato dip and basil.",
+      "basePrice": 11,
+      "image": "/images/arancini.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg"
+      ],
+      "prepTimeMinutes": 9,
+      "popular": false,
+      "variants": [
+        {
+          "id": "four-pieces",
+          "name": "4 Pieces",
+          "price": 11
+        },
+        {
+          "id": "six-pieces",
+          "name": "6 Pieces",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": "caprese-salad",
+      "categoryId": "starters",
+      "name": "Burrata Caprese Salad",
+      "description": "Creamy burrata with ripe tomatoes, basil leaves, aged balsamic, and olive oil.",
+      "basePrice": 14,
+      "image": "/images/caprese-salad.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg",
+        "gluten-free"
+      ],
+      "prepTimeMinutes": 7,
+      "popular": false,
+      "variants": [
+        {
+          "id": "individual",
+          "name": "Individual Plate",
+          "price": 14
+        },
+        {
+          "id": "sharing",
+          "name": "Sharing Plate",
+          "price": 21
+        }
+      ]
+    },
+    {
+      "id": "chicken-parmesan",
+      "categoryId": "mains",
+      "name": "Chicken Parmesan & Fettuccine",
+      "description": "Crispy chicken, melted mozzarella, tomato sauce, parmesan, and fresh fettuccine.",
+      "basePrice": 22,
+      "image": "/images/chicken-parmesan.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "non-veg"
+      ],
+      "prepTimeMinutes": 18,
+      "popular": false,
+      "variants": [
+        {
+          "id": "regular",
+          "name": "Regular",
+          "price": 22
+        },
+        {
+          "id": "large",
+          "name": "Large",
+          "price": 28
+        }
+      ]
+    },
+    {
+      "id": "shrimp-scampi",
+      "categoryId": "mains",
+      "name": "Garlic Butter Shrimp Scampi",
+      "description": "Sautéed shrimp with garlic, lemon, parsley, and linguine in a light butter sauce.",
+      "basePrice": 24,
+      "image": "/images/shrimp-scampi.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "non-veg"
+      ],
+      "prepTimeMinutes": 16,
+      "popular": false,
+      "variants": [
+        {
+          "id": "regular",
+          "name": "Regular",
+          "price": 24
+        },
+        {
+          "id": "large",
+          "name": "Large",
+          "price": 30
+        }
+      ]
+    },
+    {
+      "id": "pepperoni-pizza",
+      "categoryId": "pizza-burgers",
+      "name": "Wood-Fired Pepperoni Pizza",
+      "description": "Blistered sourdough crust topped with tomato, mozzarella, and spicy pepperoni.",
+      "basePrice": 17,
+      "image": "/images/pepperoni-pizza.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "non-veg",
+        "spicy"
+      ],
+      "prepTimeMinutes": 13,
+      "popular": true,
+      "variants": [
+        {
+          "id": "personal",
+          "name": "10-inch Personal",
+          "price": 17
+        },
+        {
+          "id": "sharing",
+          "name": "14-inch Sharing",
+          "price": 24
+        }
+      ]
+    },
+    {
+      "id": "mushroom-swiss-burger",
+      "categoryId": "pizza-burgers",
+      "name": "Mushroom Swiss Bistro Burger",
+      "description": "Grilled beef patty with Swiss cheese, sautéed mushrooms, and garlic aioli on brioche.",
+      "basePrice": 18,
+      "image": "/images/mushroom-swiss-burger.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "non-veg"
+      ],
+      "prepTimeMinutes": 15,
+      "popular": false,
+      "variants": [
+        {
+          "id": "single",
+          "name": "Single Patty",
+          "price": 18
+        },
+        {
+          "id": "double",
+          "name": "Double Patty",
+          "price": 24
+        }
+      ]
+    },
+    {
+      "id": "vanilla-panna-cotta",
+      "categoryId": "desserts",
+      "name": "Vanilla Bean Panna Cotta",
+      "description": "Silky vanilla bean cream topped with seasonal berry compote.",
+      "basePrice": 10,
+      "image": "/images/panna-cotta.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg",
+        "gluten-free"
+      ],
+      "prepTimeMinutes": 4,
+      "popular": false,
+      "variants": [
+        {
+          "id": "single",
+          "name": "Single Serving",
+          "price": 10
+        },
+        {
+          "id": "duo",
+          "name": "Duo Serving",
+          "price": 18
+        }
+      ]
+    },
+    {
+      "id": "lemon-meringue-tart",
+      "categoryId": "desserts",
+      "name": "Lemon Meringue Tart",
+      "description": "Buttery pastry filled with bright lemon curd and toasted meringue.",
+      "basePrice": 9,
+      "image": "/images/lemon-tart.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg"
+      ],
+      "prepTimeMinutes": 4,
+      "popular": false,
+      "variants": [
+        {
+          "id": "slice",
+          "name": "Single Slice",
+          "price": 9
+        },
+        {
+          "id": "whole",
+          "name": "Whole Tart (6 slices)",
+          "price": 38
+        }
+      ]
+    },
+    {
+      "id": "iced-matcha-latte",
+      "categoryId": "beverages",
+      "name": "Iced Matcha Latte",
+      "description": "Stone-ground Japanese matcha whisked with chilled milk over ice.",
+      "basePrice": 6.5,
+      "image": "/images/iced-matcha.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg",
+        "gluten-free"
+      ],
+      "prepTimeMinutes": 4,
+      "popular": false,
+      "variants": [
+        {
+          "id": "regular",
+          "name": "Regular (12 oz)",
+          "price": 6.5
+        },
+        {
+          "id": "large",
+          "name": "Large (16 oz)",
+          "price": 8
+        }
+      ]
+    },
+    {
+      "id": "mango-smoothie",
+      "categoryId": "beverages",
+      "name": "Fresh Mango Smoothie",
+      "description": "Ripe mango blended until smooth with yogurt and a splash of citrus.",
+      "basePrice": 7,
+      "image": "/images/mango-smoothie.jpg",
+      "isAvailable": true,
+      "dietary": [
+        "veg",
+        "gluten-free"
+      ],
+      "prepTimeMinutes": 4,
+      "popular": false,
+      "variants": [
+        {
+          "id": "regular",
+          "name": "Regular (12 oz)",
+          "price": 7
+        },
+        {
+          "id": "large",
+          "name": "Large (16 oz)",
+          "price": 9
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-1793298018044-h3x4u",
+      "orderNumber": 108,
+      "orderType": "dine_in",
+      "tableNumber": 6,
+      "customerId": "cust-1",
+      "customerName": "Sandy Jaiswal",
+      "customerEmail": "sandy@example.com",
+      "items": [
+        {
+          "itemId": "truffle-pappardelle",
+          "name": "Truffle Pappardelle",
+          "variantId": "full",
+          "variantName": "Full Plate (Entrée)",
+          "unitPrice": 26.5,
+          "quantity": 2,
+          "itemTotal": 53
+        },
+        {
+          "itemId": "hibiscus-mint-cooler",
+          "name": "Sparkling Hibiscus Mint Cooler",
+          "variantId": "glass",
+          "variantName": "Glass (12 oz)",
+          "unitPrice": 7,
+          "quantity": 2,
+          "itemTotal": 14
+        }
+      ],
+      "subtotal": 67,
+      "tax": 3.35,
+      "totalAmount": 70.35,
+      "status": "cancelled",
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T18:20:18.044Z",
+          "note": "Order placed from Table 6"
+        },
+        {
+          "status": "cancelled",
+          "timestamp": "2026-10-29T18:20:52.600Z",
+          "note": "test cancel from verification"
+        }
+      ],
+      "createdAt": "2026-10-29T18:20:18.044Z",
+      "updatedAt": "2026-10-29T18:20:52.600Z"
+    },
+    {
+      "id": "order-1793298018038-k3ke8",
+      "orderNumber": 107,
+      "orderType": "dine_in",
+      "tableNumber": 12,
+      "items": [
+        {
+          "itemId": "woodfired-margherita",
+          "name": "Wood-Fired Margherita",
+          "variantName": "10\" Personal (6 Slices)",
+          "unitPrice": 15.5,
+          "quantity": 1,
+          "itemTotal": 15.5
+        }
+      ],
+      "subtotal": 15.5,
+      "tax": 0.78,
+      "totalAmount": 16.28,
+      "status": "served",
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T18:20:18.038Z",
+          "note": "Order placed from Table 12"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T18:20:18.039Z",
+          "note": "Status updated to preparing"
+        },
+        {
+          "status": "ready",
+          "timestamp": "2026-10-29T18:20:18.040Z",
+          "note": "Status updated to ready"
+        },
+        {
+          "status": "served",
+          "timestamp": "2026-10-29T18:20:18.042Z",
+          "note": "Status updated to served"
+        }
+      ],
+      "createdAt": "2026-10-29T18:20:18.038Z",
+      "updatedAt": "2026-10-29T18:20:18.042Z"
+    },
+    {
+      "id": "order-1793298018032-9hbfi",
+      "orderNumber": 106,
+      "orderType": "dine_in",
+      "tableNumber": 11,
+      "items": [
+        {
+          "itemId": "truffle-pappardelle",
+          "name": "Truffle Pappardelle",
+          "variantId": "half",
+          "variantName": "Half Plate (Tasting)",
+          "unitPrice": 16,
+          "quantity": 1,
+          "itemTotal": 16
+        }
+      ],
+      "subtotal": 16,
+      "tax": 0.8,
+      "totalAmount": 16.8,
+      "status": "served",
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T18:20:18.032Z",
+          "note": "Order placed from Table 11"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T18:20:18.033Z",
+          "note": "Status updated to preparing"
+        },
+        {
+          "status": "ready",
+          "timestamp": "2026-10-29T18:20:18.034Z",
+          "note": "Status updated to ready"
+        },
+        {
+          "status": "served",
+          "timestamp": "2026-10-29T18:20:18.035Z",
+          "note": "Status updated to served"
+        }
+      ],
+      "createdAt": "2026-10-29T18:20:18.032Z",
+      "updatedAt": "2026-10-29T18:20:18.036Z",
+      "rating": {
+        "rating": 5,
+        "aspects": [
+          "⚡ Fast Service",
+          "🔥 Served Piping Hot"
+        ],
+        "comment": "Delicious pasta, served fast!",
+        "itemRatings": {},
+        "createdAt": "2026-10-29T18:20:18.036Z"
+      }
+    },
+    {
+      "id": "order-1793298018025-3lh9a",
+      "orderNumber": 105,
+      "orderType": "dine_in",
+      "tableNumber": 8,
+      "items": [
+        {
+          "itemId": "wagyu-smash-burger",
+          "name": "Brioche Wagyu Smash Burger",
+          "variantId": "single",
+          "variantName": "Single Patty (Classic)",
+          "unitPrice": 17.5,
+          "quantity": 1,
+          "itemTotal": 17.5
+        }
+      ],
+      "subtotal": 17.5,
+      "tax": 0.88,
+      "totalAmount": 18.38,
+      "status": "served",
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T18:20:18.025Z",
+          "note": "Order placed from Table 8"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T18:20:18.026Z",
+          "note": "Chef starting grill"
+        },
+        {
+          "status": "ready",
+          "timestamp": "2026-10-29T18:20:18.028Z",
+          "note": "Plated for runner"
+        },
+        {
+          "status": "served",
+          "timestamp": "2026-10-29T18:20:18.029Z",
+          "note": "Delivered to Table 8"
+        }
+      ],
+      "createdAt": "2026-10-29T18:20:18.025Z",
+      "updatedAt": "2026-10-29T18:20:18.029Z"
+    },
+    {
+      "id": "order-seed-101",
+      "orderNumber": 101,
+      "orderType": "dine_in",
+      "tableNumber": 4,
+      "customerId": "cust-1",
+      "customerName": "Sandy Jaiswal",
+      "customerEmail": "sandy@example.com",
+      "customerPhone": "+1 (555) 019-2834",
+      "notes": "Please hold the cilantro on starters. Dressing on the side.",
+      "items": [
+        {
+          "itemId": "truffle-pappardelle",
+          "name": "Truffle Pappardelle",
+          "variantId": "full",
+          "variantName": "Full Plate (Entrée)",
+          "unitPrice": 26.5,
+          "quantity": 2,
+          "itemTotal": 53,
+          "notes": "Extra parmesan on top please"
+        },
+        {
+          "itemId": "hibiscus-mint-cooler",
+          "name": "Sparkling Hibiscus Mint Cooler",
+          "variantId": "glass",
+          "variantName": "Glass (12 oz)",
+          "unitPrice": 7,
+          "quantity": 2,
+          "itemTotal": 14
+        }
+      ],
+      "subtotal": 67,
+      "tax": 3.35,
+      "totalAmount": 70.35,
+      "status": "received",
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T18:02:18.018Z",
+          "note": "Order sent by customer at Table 4"
+        }
+      ],
+      "createdAt": "2026-10-29T18:02:18.018Z",
+      "updatedAt": "2026-10-29T18:02:18.018Z"
+    },
+    {
+      "id": "order-seed-102",
+      "orderNumber": 102,
+      "orderType": "dine_in",
+      "tableNumber": 7,
+      "items": [
+        {
+          "itemId": "woodfired-margherita",
+          "name": "Wood-Fired Margherita",
+          "variantId": "large",
+          "variantName": "14\" Sharing (8 Slices)",
+          "unitPrice": 22,
+          "quantity": 1,
+          "itemTotal": 22
+        },
+        {
+          "itemId": "crispy-calamari",
+          "name": "Salt & Pepper Monterey Calamari",
+          "variantId": "full",
+          "variantName": "Full Basket",
+          "unitPrice": 16.5,
+          "quantity": 1,
+          "itemTotal": 16.5
+        }
+      ],
+      "subtotal": 38.5,
+      "tax": 1.93,
+      "totalAmount": 40.43,
+      "status": "preparing",
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T18:13:18.018Z",
+          "note": "Order received"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T18:15:18.018Z",
+          "note": "Chef started pizza oven prep"
+        }
+      ],
+      "createdAt": "2026-10-29T18:13:18.018Z",
+      "updatedAt": "2026-10-29T18:15:18.018Z"
+    },
+    {
+      "id": "order-seed-103",
+      "orderNumber": 103,
+      "orderType": "takeaway",
+      "customerId": "cust-2",
+      "customerName": "Marcus Vance",
+      "customerEmail": "marcus@example.com",
+      "customerPhone": "+1 (555) 234-8901",
+      "items": [
+        {
+          "itemId": "wagyu-smash-burger",
+          "name": "Brioche Wagyu Smash Burger",
+          "variantId": "double",
+          "variantName": "Double Patty (Signature)",
+          "unitPrice": 23,
+          "quantity": 1,
+          "itemTotal": 23,
+          "notes": "Medium rare, extra pickles"
+        },
+        {
+          "itemId": "espresso-berry-tiramisu",
+          "name": "Espresso Berry Tiramisu",
+          "variantId": "single",
+          "variantName": "Single Portion",
+          "unitPrice": 11,
+          "quantity": 1,
+          "itemTotal": 11
+        }
+      ],
+      "subtotal": 34,
+      "tax": 1.7,
+      "totalAmount": 35.7,
+      "status": "ready",
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T18:08:18.018Z",
+          "note": "Takeaway placed online"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T18:10:18.018Z",
+          "note": "Preparing packaging"
+        },
+        {
+          "status": "ready",
+          "timestamp": "2026-10-29T18:19:18.018Z",
+          "note": "Ready at front pickup counter"
+        }
+      ],
+      "createdAt": "2026-10-29T18:08:18.018Z",
+      "updatedAt": "2026-10-29T18:19:18.018Z"
+    },
+    {
+      "id": "order-seed-104",
+      "orderNumber": 104,
+      "orderType": "dine_in",
+      "tableNumber": 2,
+      "items": [
+        {
+          "itemId": "truffle-pappardelle",
+          "name": "Truffle Pappardelle",
+          "variantId": "half",
+          "variantName": "Half Plate (Tasting)",
+          "unitPrice": 16,
+          "quantity": 1,
+          "itemTotal": 16
+        }
+      ],
+      "subtotal": 16,
+      "tax": 0.8,
+      "totalAmount": 16.8,
+      "status": "received",
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T18:18:18.018Z",
+          "note": "New order placed"
+        }
+      ],
+      "createdAt": "2026-10-29T18:18:18.018Z",
+      "updatedAt": "2026-10-29T18:18:18.018Z"
+    },
+    {
+      "id": "order-seed-100",
+      "orderNumber": 100,
+      "orderType": "dine_in",
+      "tableNumber": 5,
+      "customerId": "cust-1",
+      "customerName": "Sandy Jaiswal",
+      "customerEmail": "sandy@example.com",
+      "customerPhone": "+1 (555) 019-2834",
+      "items": [
+        {
+          "itemId": "burrata-caprese",
+          "name": "Pugliese Burrata & Heirloom Tomatoes",
+          "variantId": "regular",
+          "variantName": "Standard Plate",
+          "unitPrice": 15,
+          "quantity": 1,
+          "itemTotal": 15
+        },
+        {
+          "itemId": "wild-mushroom-risotto",
+          "name": "Acquerello Wild Mushroom Risotto",
+          "variantId": "full",
+          "variantName": "Full Plate",
+          "unitPrice": 23.5,
+          "quantity": 1,
+          "itemTotal": 23.5
+        }
+      ],
+      "subtotal": 38.5,
+      "tax": 1.93,
+      "totalAmount": 40.43,
+      "status": "served",
+      "rating": {
+        "rating": 5,
+        "aspects": [
+          "🔥 Piping Hot",
+          "🍽️ Great Presentation",
+          "⚡ Fast Service"
+        ],
+        "comment": "The Truffle Pappardelle and Burrata were extraordinary! Served promptly and beautifully.",
+        "itemRatings": {
+          "burrata-caprese": "loved",
+          "wild-mushroom-risotto": "loved"
+        },
+        "createdAt": "2026-10-29T18:10:18.018Z"
+      },
+      "statusHistory": [
+        {
+          "status": "received",
+          "timestamp": "2026-10-29T17:35:18.018Z",
+          "note": "Initial dine-in order"
+        },
+        {
+          "status": "preparing",
+          "timestamp": "2026-10-29T17:45:18.018Z",
+          "note": "Kitchen started"
+        },
+        {
+          "status": "ready",
+          "timestamp": "2026-10-29T18:00:18.018Z",
+          "note": "Plated and ready"
+        },
+        {
+          "status": "served",
+          "timestamp": "2026-10-29T18:05:18.018Z",
+          "note": "Served to table 5"
+        }
+      ],
+      "createdAt": "2026-10-29T17:35:18.018Z",
+      "updatedAt": "2026-10-29T18:05:18.018Z"
+    }
+  ],
+  "lastOrderNumber": 108
+}
