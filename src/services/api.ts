@@ -107,11 +107,14 @@ export async function fetchOrders(params?: { status?: string; date?: string; ord
 }
 
 export async function fetchOrderById(id: string): Promise<Order> {
-  const res = await fetch(`${API_BASE}/orders/${id}`, {
-    headers: authHeaders(),
-  });
-  if (!res.ok) throw new Error('Order not found');
-  return res.json();
+  // Customer order tracking must work without an admin login. The public orders
+  // endpoint is also used by the kitchen display, so resolve the selected order
+  // from that same authoritative list rather than calling the admin-protected
+  // single-order endpoint.
+  const orders = await fetchOrders();
+  const order = orders.find((candidate) => candidate.id === id);
+  if (!order) throw new Error('Order not found');
+  return order;
 }
 
 export async function calculateOrderPrices(items: CreateOrderPayload['items']) {
