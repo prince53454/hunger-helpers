@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRestaurant } from '../context/RestaurantContext.tsx';
 import { OrderStatus } from '../types/restaurant.ts';
 import {
@@ -47,6 +47,7 @@ const STATUS_STEPS: { key: OrderStatus; label: string; icon: any; description: s
 export const CustomerOrderTracker: React.FC = () => {
   const {
     activeOrder,
+    activeOrderId,
     setActiveOrderId,
     setRole,
     kitchenOrders,
@@ -58,6 +59,17 @@ export const CustomerOrderTracker: React.FC = () => {
 
   const [testSuccess, setTestSuccess] = useState(false);
   const [isTesting, setIsTesting] = useState(false);
+
+  // Keep the customer tracker synchronized even when an SSE connection is
+  // interrupted or a hosting proxy drops a stream event. SSE remains the
+  // primary instant update path; this is a lightweight recovery poll.
+  useEffect(() => {
+    if (!activeOrderId) return;
+    const refreshInterval = window.setInterval(() => {
+      void reloadActiveOrder();
+    }, 5000);
+    return () => window.clearInterval(refreshInterval);
+  }, [activeOrderId, reloadActiveOrder]);
 
   if (!activeOrder) {
     return (
