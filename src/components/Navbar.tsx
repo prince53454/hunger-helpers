@@ -113,14 +113,17 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setRole('kitchen')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
+              aria-label="Open Kitchen Display System"
+              title="Open Kitchen Display System"
+              className={`flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all whitespace-nowrap shrink-0 border shadow-sm ${
                 role === 'kitchen'
-                  ? 'bg-stone-800 text-amber-400 font-semibold'
-                  : 'text-stone-300 hover:text-white hover:bg-stone-800/60'
+                  ? 'bg-amber-500 text-stone-950 border-amber-300 shadow-amber-950/30'
+                  : 'bg-amber-600 hover:bg-amber-500 text-stone-950 border-amber-500 hover:shadow-md hover:-translate-y-0.5'
               }`}
             >
-              <ChefHat className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
-              <span>Kitchen</span>
+              <ChefHat className="w-4 h-4" />
+              <span>Kitchen Display</span>
+              <span className="hidden xl:inline text-[10px] uppercase tracking-wide opacity-75">Live</span>
             </button>
 
             <button
