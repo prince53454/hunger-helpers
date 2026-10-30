@@ -7,6 +7,7 @@ import { X, Plus, Minus, Trash2, ShoppingBag, UtensilsCrossed, Package, AlertCir
 
 export const CartDrawer: React.FC = () => {
   const {
+    role,
     cart,
     updateCartQuantity,
     removeFromCart,
@@ -39,6 +40,7 @@ export const CartDrawer: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Authoritative server preview calculation
+  const [isPriceCalculating, setIsPriceCalculating] = useState(false);
   const [serverCalculation, setServerCalculation] = useState<{
     subtotal: number;
     tax: number;
@@ -47,9 +49,11 @@ export const CartDrawer: React.FC = () => {
 
   // Recalculate prices authoritatively on server whenever cart changes
   useEffect(() => {
+    let isCurrentRequest = true;
     if (cart.length === 0) {
       setServerCalculation(null);
-      return;
+      setIsPriceCalculating(false);
+      return () => { isCurrentRequest = false; };
     }
 
     const payloadItems = cart.map((ci) => ({
@@ -59,9 +63,12 @@ export const CartDrawer: React.FC = () => {
       notes: ci.notes,
     }));
 
+    setIsPriceCalculating(true);
+    setServerCalculation(null);
     api
       .calculateOrderPrices(payloadItems)
       .then((res) => {
+        if (!isCurrentRequest) return;
         setServerCalculation({
           subtotal: res.subtotal,
           tax: res.tax,
@@ -70,18 +77,27 @@ export const CartDrawer: React.FC = () => {
         setErrorMessage(null);
       })
       .catch((err) => {
-        // e.g. item out of stock
+        if (!isCurrentRequest) return;
+        setServerCalculation(null);
         setErrorMessage(err.message || 'Unable to calculate order pricing');
+      })
+      .finally(() => {
+        if (isCurrentRequest) setIsPriceCalculating(false);
       });
+    return () => { isCurrentRequest = false; };
   }, [cart]);
 
-  if (!isCartDrawerOpen) return null;
+  if (!isCartDrawerOpen || role !== 'customer') return null;
 
   const handlePlaceOrder = async () => {
     setErrorMessage(null);
 
     if (cart.length === 0) {
       setErrorMessage('Your cart is empty. Please add delicious dishes to order.');
+      return;
+    }
+    if (isPriceCalculating || !serverCalculation) {
+      setErrorMessage('Please wait while we verify your cart prices.');
       return;
     }
 
@@ -400,19 +416,19 @@ export const CartDrawer: React.FC = () => {
                 <div className="flex justify-between">
                   <span>Subtotal</span>
                   <span className="tabular-nums font-medium text-stone-200">
-                    ${(serverCalculation?.subtotal ?? 0).toFixed(2)}
+                    {isPriceCalculating ? 'Calculating…' : `${(serverCalculation?.subtotal ?? 0).toFixed(2)}`}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sales Tax (5%)</span>
                   <span className="tabular-nums font-medium text-stone-200">
-                    ${(serverCalculation?.tax ?? 0).toFixed(2)}
+                    {isPriceCalculating ? 'Calculating…' : `${(serverCalculation?.tax ?? 0).toFixed(2)}`}
                   </span>
                 </div>
                 <div className="flex justify-between text-stone-100 text-sm font-bold pt-2 border-t border-stone-800">
                   <span>Authoritative Total</span>
                   <span className="tabular-nums text-amber-400 font-serif text-base">
-                    ${(serverCalculation?.totalAmount ?? 0).toFixed(2)}
+                    {isPriceCalculating ? 'Calculating…' : `${(serverCalculation?.totalAmount ?? 0).toFixed(2)}`}
                   </span>
                 </div>
                 <p className="text-[10px] text-stone-500 text-right">
@@ -423,7 +439,7 @@ export const CartDrawer: React.FC = () => {
               <button
                 type="button"
                 onClick={handlePlaceOrder}
-                disabled={isSubmitting}
+                disabled={isSubmitting || isPriceCalculating || !serverCalculation}
                 className="w-full py-3 bg-amber-600 hover:bg-amber-500 disabled:opacity-50 text-stone-950 font-bold text-sm rounded-xl transition-all shadow-lg flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
@@ -433,7 +449,7 @@ export const CartDrawer: React.FC = () => {
                   </>
                 ) : (
                   <span>
-                    Send Order to Kitchen • ${(serverCalculation?.totalAmount ?? 0).toFixed(2)}
+                    {isPriceCalculating ? 'Verifying cart…' : `Send Order to Kitchen • ${(serverCalculation?.totalAmount ?? 0).toFixed(2)}`}
                   </span>
                 )}
               </button>
