@@ -87,7 +87,7 @@ export const CartDrawer: React.FC = () => {
     return () => { isCurrentRequest = false; };
   }, [cart]);
 
-  if (!isCartDrawerOpen || role !== 'customer') return null;
+  if (!isCartDrawerOpen) return null;
 
   const handlePlaceOrder = async () => {
     setErrorMessage(null);
