@@ -8,195 +8,96 @@ import {
   Bell,
   BellRing,
   BellOff,
+  Radio,
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const {
-    role,
-    setRole,
-    customerTab,
-    setCustomerTab,
-    customerUser,
-    cart,
-    setIsCartDrawerOpen,
-    activeOrderId,
-    notificationPermission,
-    requestNotificationPermission,
-    testNotification,
+    role, setRole, customerTab, setCustomerTab, customerUser, cart,
+    setIsCartDrawerOpen, activeOrderId, notificationPermission,
+    requestNotificationPermission, testNotification,
   } = useRestaurant();
 
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const openCart = () => {
+    setRole('customer');
+    setIsCartDrawerOpen(true);
+  };
+
+  const navClass = (active: boolean) =>
+    `inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold whitespace-nowrap transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
+      active
+        ? 'bg-amber-500/15 text-amber-300 ring-1 ring-inset ring-amber-500/30'
+        : 'text-stone-300 hover:bg-stone-800 hover:text-white'
+    }`;
 
   return (
-    <header className="sticky top-0 z-40 bg-stone-900 text-stone-100 border-b border-stone-800 backdrop-blur-md bg-opacity-95 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex min-h-16 flex-wrap items-center gap-x-4 gap-y-2 py-2 lg:flex-nowrap">
-          
-          {/* Zone 1: Brand Wordmark */}
-          <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={() => {
-                setRole('customer');
-                setCustomerTab('menu');
-              }}
-              className="text-left group flex items-center gap-2.5 focus:outline-none"
-            >
-              <div className="w-8 h-8 rounded-lg bg-amber-600 flex items-center justify-center text-stone-950 font-serif font-bold text-lg shadow-inner">
-                H
-              </div>
-              <div>
-                <span className="font-serif text-lg font-bold tracking-tight text-stone-100 group-hover:text-amber-400 transition-colors whitespace-nowrap">
-                  Hunger Helpers
-                </span>
-                <span className="hidden sm:inline-block ml-2 text-xs text-stone-400 font-sans tracking-widest uppercase">
-                  Restaurant Operations
-                </span>
-              </div>
-            </button>
-          </div>
+    <header className="sticky top-0 z-40 w-full border-b border-stone-800 bg-stone-950/95 text-stone-100 shadow-lg shadow-black/10 backdrop-blur-xl">
+      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[minmax(220px,1fr)_auto_minmax(220px,1fr)] lg:gap-6 lg:px-8">
+        <button
+          type="button"
+          onClick={() => { setRole('customer'); setCustomerTab('menu'); }}
+          className="flex min-w-0 items-center gap-3 justify-self-start rounded-xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+          aria-label="Hunger Helpers home"
+        >
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-500 text-xl font-black text-stone-950 shadow-md shadow-amber-950/30">H</span>
+          <span className="flex min-w-0 flex-col">
+            <span className="font-serif text-lg font-bold leading-tight tracking-wide text-white sm:text-xl">Hunger Helpers</span>
+            <span className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-400">Restaurant & Kitchen</span>
+          </span>
+        </button>
 
-          {/* Zone 2: Role & View Navigation */}
-          <nav className="order-3 flex w-full min-w-0 flex-1 items-center justify-start gap-2 overflow-x-auto py-1 scrollbar-none lg:order-none lg:w-auto lg:justify-center">
+        <nav aria-label="Main navigation" className="flex w-full min-w-0 items-center justify-center gap-1.5 overflow-x-auto rounded-2xl bg-stone-900/80 p-1.5 lg:w-auto lg:gap-2">
+          <button type="button" onClick={() => { setRole('customer'); setCustomerTab('menu'); }} className={navClass(role === 'customer' && customerTab === 'menu')}>
+            <Utensils className="h-4 w-4" /><span>Menu</span>
+          </button>
+          <button type="button" onClick={() => { setRole('customer'); setCustomerTab('history'); }} className={navClass(role === 'customer' && customerTab === 'history')}>
+            <History className="h-4 w-4" /><span>Past Orders</span>
+          </button>
+          {activeOrderId && (
+            <button type="button" onClick={() => { setRole('customer'); setCustomerTab('tracker'); }} className={navClass(role === 'customer' && customerTab === 'tracker')}>
+              <Radio className="h-4 w-4" /><span>Live Tracking</span>
+            </button>
+          )}
+          <button type="button" onClick={() => setRole('kitchen')} className={navClass(role === 'kitchen')}>
+            <ChefHat className="h-4 w-4" /><span>Kitchen KDS</span><span className="rounded-md bg-emerald-500/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-300">Live</span>
+          </button>
+        </nav>
+
+        <div className="flex w-full items-center justify-between gap-2 justify-self-end sm:justify-end lg:w-auto">
+          {role === 'customer' && customerUser && (
+            <button type="button" onClick={() => setCustomerTab('history')} title={`Signed in as ${customerUser.name}`} className="hidden min-h-11 max-w-40 items-center gap-2 rounded-xl px-3 text-sm text-stone-300 transition-colors hover:bg-stone-800 hover:text-amber-300 sm:flex">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-500/15 font-bold text-amber-300">{customerUser.name.charAt(0)}</span>
+              <span className="truncate">{customerUser.name}</span>
+            </button>
+          )}
+          {role === 'customer' && (
             <button
-              onClick={() => {
-                setRole('customer');
-                setCustomerTab('menu');
+              type="button"
+              onClick={async () => {
+                if (notificationPermission !== 'granted') await requestNotificationPermission();
+                else await testNotification();
               }}
-              className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
-                role === 'customer' && customerTab === 'menu'
-                  ? 'bg-stone-800 text-amber-400 font-semibold'
-                  : 'text-stone-300 hover:text-white hover:bg-stone-800/60'
+              title={notificationPermission === 'granted' ? 'Test order notifications' : notificationPermission === 'denied' ? 'Notifications are blocked in browser settings' : 'Enable order-ready notifications'}
+              aria-label="Notification settings"
+              className={`inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl border px-3 text-sm font-semibold transition-colors ${
+                notificationPermission === 'granted'
+                  ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20'
+                  : notificationPermission === 'denied'
+                    ? 'border-stone-700 bg-stone-900 text-stone-400'
+                    : 'border-amber-500/30 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20'
               }`}
             >
-              <Utensils className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
-              <span>Customer</span>
+              {notificationPermission === 'granted' ? <Bell className="h-4 w-4" /> : notificationPermission === 'denied' ? <BellOff className="h-4 w-4" /> : <BellRing className="h-4 w-4" />}
+              <span className="hidden xl:inline">Alerts</span>
             </button>
-
-            {/* Past Orders History tab for Customer */}
-            <button
-              onClick={() => {
-                setRole('customer');
-                setCustomerTab('history');
-              }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
-                role === 'customer' && customerTab === 'history'
-                  ? 'bg-stone-800 text-amber-400 font-semibold'
-                  : 'text-stone-300 hover:text-white hover:bg-stone-800/60'
-              }`}
-            >
-              <History className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
-              <span>Past Orders</span>
+          )}
+          {role === 'customer' && (
+            <button type="button" onClick={openCart} aria-label={`Open cart, ${totalCartCount} items`} className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-extrabold text-stone-950 shadow-md shadow-amber-950/25 transition-all hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950">
+              <ShoppingBag className="h-4 w-4" /><span>Cart</span>
+              <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-stone-950 px-1.5 py-0.5 text-xs font-bold tabular-nums text-amber-300">{totalCartCount}</span>
             </button>
-
-            {activeOrderId && (
-              <button
-                onClick={() => {
-                  setRole('customer');
-                  setCustomerTab('tracker');
-                }}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
-                  role === 'customer' && customerTab === 'tracker'
-                    ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30 font-semibold'
-                    : 'text-stone-300 hover:text-white hover:bg-stone-800/60'
-                }`}
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Live Order</span>
-              </button>
-            )}
-
-            <button
-              onClick={() => setRole('kitchen')}
-              aria-label="Open Kitchen Display System"
-              title="Open the live cook screen: received, preparing, ready, and completed orders"
-              className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all whitespace-nowrap shrink-0 border shadow-sm ${
-                role === 'kitchen'
-                  ? 'bg-amber-500 text-stone-950 border-amber-300 shadow-amber-950/30'
-                  : 'bg-amber-600 hover:bg-amber-500 text-stone-950 border-amber-500 hover:shadow-md hover:-translate-y-0.5'
-              }`}
-            >
-              <ChefHat className="w-4 h-4" />
-              <span>Kitchen KDS</span>
-              <span className="hidden xl:inline text-[10px] uppercase tracking-wide opacity-75">Live</span>
-            </button>
-
-          </nav>
-
-          {/* Zone 3: Actions */}
-          <div className="flex items-center gap-2 shrink-0">
-            {/* Browser Notification Indicator / Permission Button */}
-            {role === 'customer' && (
-              <button
-                onClick={async () => {
-                  if (notificationPermission !== 'granted') {
-                    await requestNotificationPermission();
-                  } else {
-                    await testNotification();
-                  }
-                }}
-                title={
-                  notificationPermission === 'granted'
-                    ? 'Desktop Push Notifications: Enabled. Click to test alert chime & notification.'
-                    : notificationPermission === 'denied'
-                    ? 'Desktop Notifications: Blocked in browser settings.'
-                    : 'Click to enable browser notifications for order ready alerts.'
-                }
-                className={`p-1.5 sm:px-2.5 sm:py-1.5 text-xs rounded-lg border transition-colors flex items-center gap-1.5 ${
-                  notificationPermission === 'granted'
-                    ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20'
-                    : notificationPermission === 'denied'
-                    ? 'bg-stone-800 text-stone-500 border-stone-700/60'
-                    : 'bg-amber-500/10 text-amber-300 border-amber-500/30 hover:bg-amber-500/20 animate-pulse'
-                }`}
-              >
-                {notificationPermission === 'granted' ? (
-                  <>
-                    <Bell className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="hidden xl:inline text-[11px] font-medium">Alerts Active</span>
-                  </>
-                ) : notificationPermission === 'denied' ? (
-                  <BellOff className="w-3.5 h-3.5" />
-                ) : (
-                  <>
-                    <BellRing className="w-3.5 h-3.5 text-amber-400" />
-                    <span className="hidden xl:inline text-[11px] font-semibold">Enable Alerts</span>
-                  </>
-                )}
-              </button>
-            )}
-            {role === 'customer' && customerUser && (
-              <button
-                onClick={() => {
-                  setCustomerTab('history');
-                }}
-                title={`Signed in as ${customerUser.name} (${customerUser.email}). Click to view past orders.`}
-                className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 text-xs text-stone-300 hover:text-amber-400 bg-stone-800/80 hover:bg-stone-800 rounded-lg border border-stone-700/60 transition-colors"
-              >
-                <div className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-[10px]">
-                  {customerUser.name.charAt(0)}
-                </div>
-                <span className="font-medium truncate max-w-[100px]">{customerUser.name}</span>
-              </button>
-            )}
-
-            {/* Shopping Cart button for Customer */}
-            {role === 'customer' && (
-            <button
-              onClick={() => setIsCartDrawerOpen(true)}
-              className="relative flex items-center gap-2 px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-stone-950 font-medium text-xs sm:text-sm rounded-lg transition-colors whitespace-nowrap shadow-sm"
-              aria-label="Open Cart"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              <span className="hidden sm:inline">Cart</span>
-              {totalCartCount > 0 && (
-                <span className="inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold bg-stone-950 text-amber-400 rounded-md tabular-nums">
-                  {totalCartCount}
-                </span>
-              )}
-            </button>
-            )}
-          </div>
-
+          )}
         </div>
       </div>
     </header>
