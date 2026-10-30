@@ -192,7 +192,7 @@ export const CartDrawer: React.FC = () => {
                 <p className="font-serif text-base text-stone-300">Your cart is currently empty</p>
                 <p className="text-xs text-stone-500 mt-1">Explore our chef-curated menu to add dishes</p>
                 <button
-                  onClick={() => setIsCartDrawerOpen(false)}
+                  onClick={() => { setIsCartDrawerOpen(false); setRole('customer'); setCustomerTab('menu'); }}
                   className="mt-4 px-4 py-2 text-xs font-bold bg-amber-600 text-stone-950 rounded-xl hover:bg-amber-500 transition-colors"
                 >
                   Browse Menu
