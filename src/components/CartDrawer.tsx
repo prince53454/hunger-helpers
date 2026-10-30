@@ -3,12 +3,15 @@ import { useRestaurant } from '../context/RestaurantContext.tsx';
 import { OrderType, CreateOrderPayload } from '../types/restaurant.ts';
 import * as api from '../services/api.ts';
 import { getMenuImage } from '../utils/menuImages.ts';
-import { X, Plus, Minus, Trash2, ShoppingBag, UtensilsCrossed, Package, AlertCircle } from 'lucide-react';
+import { X, Plus, Minus, Trash2, ShoppingBag, UtensilsCrossed, Package, AlertCircle, Search, PlusCircle } from 'lucide-react';
 
 export const CartDrawer: React.FC = () => {
   const {
     role,
     cart,
+    menuItems,
+    categories,
+    addToCart,
     updateCartQuantity,
     removeFromCart,
     clearCart,
@@ -22,6 +25,8 @@ export const CartDrawer: React.FC = () => {
     reloadCustomerOrders,
   } = useRestaurant();
 
+  const [menuSearch, setMenuSearch] = useState('');
+  const [menuCategory, setMenuCategory] = useState('all');
   const [orderType, setOrderType] = useState<OrderType>('dine_in');
   const [tableNumber, setTableNumber] = useState<number>(4);
   const [customerName, setCustomerName] = useState<string>(customerUser?.name || '');
@@ -288,6 +293,27 @@ export const CartDrawer: React.FC = () => {
                 </div>
               </div>
             )}
+
+            {/* Quick-add menu: customers can keep browsing without leaving the cart */}
+            <section className="mt-6 border-t border-stone-800 pt-5">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400">Explore the menu</p><h3 className="mt-1 font-serif text-lg font-bold text-stone-100">Add more dishes</h3></div>
+                <span className="rounded-full bg-stone-800 px-2.5 py-1 text-[10px] text-stone-400">{menuItems.filter(i => i.isAvailable).length} available</span>
+              </div>
+              <div className="relative mb-3"><Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-500" /><input value={menuSearch} onChange={e => setMenuSearch(e.target.value)} placeholder="Search dishes to add..." className="w-full rounded-xl border border-stone-700 bg-stone-950 py-2.5 pl-9 pr-3 text-sm text-stone-100 outline-none focus:border-amber-500" /></div>
+              <div className="mb-3 flex gap-2 overflow-x-auto pb-1">{[{id:'all',name:'All'}, ...categories].map(cat => <button key={cat.id} type="button" onClick={() => setMenuCategory(cat.id)} className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold ${menuCategory===cat.id?'bg-amber-500 text-stone-950':'border border-stone-700 text-stone-400 hover:text-white'}`}>{cat.name}</button>)}</div>
+              <div className="space-y-2">
+                {menuItems.filter(item => item.isAvailable && (menuCategory==='all' || item.categoryId===menuCategory) && (!menuSearch.trim() || item.name.toLowerCase().includes(menuSearch.toLowerCase()) || item.description.toLowerCase().includes(menuSearch.toLowerCase()))).slice(0,30).map(item => {
+                  const variant = item.variants?.[0]; const price = variant ? variant.price : item.basePrice;
+                  return <div key={item.id} className="flex items-center gap-3 rounded-xl border border-stone-800 bg-stone-950/70 p-2.5">
+                    {item.image ? <img src={getMenuImage(item.image)} alt="" className="h-14 w-14 shrink-0 rounded-lg object-cover" /> : <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-stone-800 text-xs text-stone-500"><UtensilsCrossed className="h-5 w-5" /></div>}
+                    <div className="min-w-0 flex-1"><p className="truncate text-sm font-semibold text-stone-100">{item.name}</p><p className="mt-0.5 text-xs text-stone-400">{variant?.name ? variant.name+' · ' : ''}{price.toFixed(2)}</p></div>
+                    <button type="button" onClick={() => addToCart(item, variant?.id)} className="inline-flex shrink-0 items-center gap-1 rounded-lg bg-amber-500 px-3 py-2 text-xs font-extrabold text-stone-950 transition hover:bg-amber-400"><PlusCircle className="h-4 w-4" /> Add</button>
+                  </div>;
+                })}
+                {menuItems.filter(item => item.isAvailable && (menuCategory==='all' || item.categoryId===menuCategory) && (!menuSearch.trim() || item.name.toLowerCase().includes(menuSearch.toLowerCase()) || item.description.toLowerCase().includes(menuSearch.toLowerCase()))).length===0 && <p className="rounded-xl border border-dashed border-stone-700 p-4 text-center text-xs text-stone-500">No available dishes match your search.</p>}
+              </div>
+            </section>
 
             {/* Order Settings Form */}
             {cart.length > 0 && (
