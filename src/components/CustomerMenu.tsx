@@ -147,25 +147,16 @@ export const CustomerMenu: React.FC = () => {
               </div>
             </div>
 
-            {/* Restaurant brand spotlight — replaces the unrelated Chef's Signature food image */}
-            <div className="lg:col-span-5 hidden lg:block">
-              <div className="relative min-h-[18rem] overflow-hidden rounded-2xl bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 shadow-2xl">
-                <div className="absolute -right-10 -top-12 h-56 w-56 rounded-full" />
-                <div className="absolute -right-2 -top-4 h-40 w-40 rounded-full" />
-                <div className="relative flex min-h-[18rem] flex-col items-center justify-center px-8 py-8 text-center">
-                  <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-stone-950 shadow-[0_0_45px_rgba(217,119,6,0.16)]">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-500/10">
-                      <ChefHat className="h-9 w-9 text-amber-400" strokeWidth={1.5} />
-                    </div>
-                  </div>
-                  <div className="mb-2 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-500">
-                    <Flame className="h-3.5 w-3.5" /> Fresh from our kitchen <Flame className="h-3.5 w-3.5" />
-                  </div>
-                  <h2 className="font-serif text-3xl font-bold tracking-wide text-stone-100">HUNGER HELPERS</h2>
-                  <div className="mt-3 h-px w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
-                  <p className="mt-3 max-w-xs text-sm leading-relaxed text-stone-400">Good food. Crafted with care. Served fresh, straight from our kitchen to your table.</p>
-                  <span className="mt-5 rounded-full bg-amber-500/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-300">Wood-fired · Handcrafted · Made fresh</span>
+            {/* Minimal restaurant identity — free-standing logo and text, no card or panel */}
+            <div className="lg:col-span-5 hidden lg:flex items-center justify-center px-6 py-8">
+              <div className="flex flex-col items-center text-center">
+                <ChefHat className="mb-5 h-14 w-14 text-amber-400" strokeWidth={1.35} />
+                <div className="mb-3 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-500">
+                  <Flame className="h-3.5 w-3.5" /> Fresh from our kitchen <Flame className="h-3.5 w-3.5" />
                 </div>
+                <h2 className="font-serif text-3xl font-bold tracking-wide text-stone-100">HUNGER HELPERS</h2>
+                <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-400">Good food. Crafted with care. Served fresh, straight from our kitchen to your table.</p>
+                <span className="mt-5 text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-300">Wood-fired · Handcrafted · Made fresh</span>
               </div>
             </div>
 
