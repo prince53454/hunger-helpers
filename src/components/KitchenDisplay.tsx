@@ -74,7 +74,7 @@ export const KitchenDisplay: React.FC = () => {
     <div className="min-h-screen bg-stone-950 text-stone-100 pb-20">
       
       {/* Kitchen KDS Top Header */}
-      <header className="sticky top-16 z-30 bg-stone-900 border-b border-stone-800 px-4 sm:px-6 lg:px-8 py-3.5 shadow-md">
+      <header className="sticky top-[6.5rem] lg:top-16 z-30 bg-stone-900 border-b border-stone-800 px-4 sm:px-6 lg:px-8 py-3.5 shadow-md">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
           
           <div className="flex items-center gap-3">
