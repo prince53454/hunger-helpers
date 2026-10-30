@@ -131,7 +131,7 @@ export const Navbar: React.FC = () => {
               }`}
             >
               <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
-              <span>Manager Portal</span>
+              <span>Admin Portal</span>
             </button>
           </nav>
 
