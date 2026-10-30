@@ -180,6 +180,7 @@ export const Navbar: React.FC = () => {
             )}
 
             {/* Shopping Cart button for Customer */}
+            {role === 'customer' && (
             <button
               onClick={() => setIsCartDrawerOpen(true)}
               className="relative flex items-center gap-2 px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-stone-950 font-medium text-xs sm:text-sm rounded-lg transition-colors whitespace-nowrap shadow-sm"
@@ -193,6 +194,7 @@ export const Navbar: React.FC = () => {
                 </span>
               )}
             </button>
+            )}
           </div>
 
         </div>
