@@ -65,13 +65,13 @@ export const Navbar: React.FC = () => {
         </nav>
 
         <div className="flex w-full items-center justify-between gap-2 justify-self-end sm:justify-end lg:w-auto">
-          {role === 'customer' && customerUser && (
-            <button type="button" onClick={() => setCustomerTab('history')} title={`Signed in as ${customerUser.name}`} className="hidden min-h-11 max-w-40 items-center gap-2 rounded-xl px-3 text-sm text-stone-300 transition-colors hover:bg-stone-800 hover:text-amber-300 sm:flex">
+          {customerUser && (
+            <button type="button" onClick={() => { setRole('customer'); setCustomerTab('history'); }} title={`Signed in as ${customerUser.name}`} className="hidden min-h-11 max-w-40 items-center gap-2 rounded-xl px-3 text-sm text-stone-300 transition-colors hover:bg-stone-800 hover:text-amber-300 sm:flex">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-500/15 font-bold text-amber-300">{customerUser.name.charAt(0)}</span>
               <span className="truncate">{customerUser.name}</span>
             </button>
           )}
-          {role === 'customer' && (
+          {(
             <button
               type="button"
               onClick={async () => {
