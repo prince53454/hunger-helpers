@@ -59,7 +59,7 @@ const MainLayout: React.FC = () => {
 
       {/* Secondary Subnav for Customer */}
       {role === 'customer' && (
-        <div className="bg-stone-900 border-b border-stone-800 px-4 py-2 sticky top-16 z-20">
+        <div className="bg-stone-900 border-b border-stone-800 px-4 py-2 sticky top-[6.5rem] lg:top-16 z-20">
           <div className="max-w-7xl mx-auto flex items-center justify-between text-xs">
             <div className="flex items-center gap-2">
               <button
