@@ -149,7 +149,7 @@ export const CustomerMenu: React.FC = () => {
 
             {/* Restaurant brand spotlight — replaces the unrelated Chef's Signature food image */}
             <div className="lg:col-span-5 hidden lg:block">
-              <div className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-amber-700/40 bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 shadow-2xl">
+              <div className="relative min-h-[18rem] overflow-hidden rounded-2xl bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 shadow-2xl">
                 <div className="absolute -right-10 -top-12 h-56 w-56 rounded-full border border-amber-500/10" />
                 <div className="absolute -right-2 -top-4 h-40 w-40 rounded-full border border-amber-500/10" />
                 <div className="relative flex min-h-[18rem] flex-col items-center justify-center px-8 py-8 text-center">
