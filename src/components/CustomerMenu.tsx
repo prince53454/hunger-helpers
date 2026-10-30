@@ -150,11 +150,11 @@ export const CustomerMenu: React.FC = () => {
             {/* Restaurant brand spotlight — replaces the unrelated Chef's Signature food image */}
             <div className="lg:col-span-5 hidden lg:block">
               <div className="relative min-h-[18rem] overflow-hidden rounded-2xl bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 shadow-2xl">
-                <div className="absolute -right-10 -top-12 h-56 w-56 rounded-full border border-amber-500/10" />
-                <div className="absolute -right-2 -top-4 h-40 w-40 rounded-full border border-amber-500/10" />
+                <div className="absolute -right-10 -top-12 h-56 w-56 rounded-full" />
+                <div className="absolute -right-2 -top-4 h-40 w-40 rounded-full" />
                 <div className="relative flex min-h-[18rem] flex-col items-center justify-center px-8 py-8 text-center">
-                  <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full border border-amber-400/60 bg-stone-950 shadow-[0_0_45px_rgba(217,119,6,0.16)]">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10">
+                  <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-stone-950 shadow-[0_0_45px_rgba(217,119,6,0.16)]">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-500/10">
                       <ChefHat className="h-9 w-9 text-amber-400" strokeWidth={1.5} />
                     </div>
                   </div>
@@ -164,7 +164,7 @@ export const CustomerMenu: React.FC = () => {
                   <h2 className="font-serif text-3xl font-bold tracking-wide text-stone-100">HUNGER HELPERS</h2>
                   <div className="mt-3 h-px w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
                   <p className="mt-3 max-w-xs text-sm leading-relaxed text-stone-400">Good food. Crafted with care. Served fresh, straight from our kitchen to your table.</p>
-                  <span className="mt-5 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-300">Wood-fired · Handcrafted · Made fresh</span>
+                  <span className="mt-5 rounded-full bg-amber-500/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-300">Wood-fired · Handcrafted · Made fresh</span>
                 </div>
               </div>
             </div>
