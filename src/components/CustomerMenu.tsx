@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useRestaurant } from '../context/RestaurantContext.tsx';
 import { MenuItem, DietaryType } from '../types/restaurant.ts';
 import { VariantModal } from './VariantModal.tsx';
-import { Search, Sparkles, AlertCircle, Plus, CheckCircle2 } from 'lucide-react';
+import { Search, Sparkles, AlertCircle, Plus, ChefHat, Flame } from 'lucide-react';
 import { getMenuImage } from '../utils/menuImages.ts';
 
 export const CustomerMenu: React.FC = () => {
@@ -147,32 +147,24 @@ export const CustomerMenu: React.FC = () => {
               </div>
             </div>
 
-            {/* Featured Dish Spotlight (Right Hero) */}
+            {/* Restaurant brand spotlight — replaces the unrelated Chef's Signature food image */}
             <div className="lg:col-span-5 hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden border border-stone-800 shadow-2xl bg-stone-900">
-                <div className="h-64 overflow-hidden relative">
-                  <img
-                    src={getMenuImage('/src/assets/images/dish_truffle_pasta_1793287332343.jpg')}
-                    alt="Handmade Truffle Pappardelle"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent" />
-                  <div className="absolute top-3 left-3 bg-stone-950/80 backdrop-blur-md px-2.5 py-1 rounded-md text-xs font-semibold text-amber-400 border border-stone-800">
-                    Chef's Signature
-                  </div>
-                </div>
-                <div className="p-4 bg-stone-900">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="font-serif text-base font-bold text-stone-100">Handmade Truffle Pappardelle</h4>
-                      <p className="text-xs text-stone-400 mt-0.5">Shaved black Umbrian truffles & parmesan cream</p>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-xs text-stone-500 block">From</span>
-                      <span className="font-semibold text-amber-400 tabular-nums">$16.00</span>
+              <div className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-amber-700/40 bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 shadow-2xl">
+                <div className="absolute -right-10 -top-12 h-56 w-56 rounded-full border border-amber-500/10" />
+                <div className="absolute -right-2 -top-4 h-40 w-40 rounded-full border border-amber-500/10" />
+                <div className="relative flex min-h-[18rem] flex-col items-center justify-center px-8 py-8 text-center">
+                  <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full border border-amber-400/60 bg-stone-950 shadow-[0_0_45px_rgba(217,119,6,0.16)]">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10">
+                      <ChefHat className="h-9 w-9 text-amber-400" strokeWidth={1.5} />
                     </div>
                   </div>
+                  <div className="mb-2 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-500">
+                    <Flame className="h-3.5 w-3.5" /> Fresh from our kitchen <Flame className="h-3.5 w-3.5" />
+                  </div>
+                  <h2 className="font-serif text-3xl font-bold tracking-wide text-stone-100">HUNGER HELPERS</h2>
+                  <div className="mt-3 h-px w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
+                  <p className="mt-3 max-w-xs text-sm leading-relaxed text-stone-400">Good food. Crafted with care. Served fresh, straight from our kitchen to your table.</p>
+                  <span className="mt-5 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-amber-300">Wood-fired · Handcrafted · Made fresh</span>
                 </div>
               </div>
             </div>
