@@ -1,11 +1,10 @@
 import React from 'react';
-import { useRestaurant, RoleType } from '../context/RestaurantContext.tsx';
+import { useRestaurant } from '../context/RestaurantContext.tsx';
 import {
   ShoppingBag,
   ChefHat,
   Utensils,
   History,
-  User,
   Bell,
   BellRing,
   BellOff,
@@ -63,7 +62,7 @@ export const Navbar: React.FC = () => {
                 setRole('customer');
                 setCustomerTab('menu');
               }}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
+              className={`flex items-center gap-1.5 px-3 sm:px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
                 role === 'customer' && customerTab === 'menu'
                   ? 'bg-stone-800 text-amber-400 font-semibold'
                   : 'text-stone-300 hover:text-white hover:bg-stone-800/60'
@@ -110,7 +109,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setRole('kitchen')}
               aria-label="Open Kitchen Display System"
               title="Open the live cook screen: received, preparing, ready, and completed orders"
-              className={`flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all whitespace-nowrap shrink-0 border shadow-sm ${
+              className={`flex items-center gap-1.5 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-all whitespace-nowrap shrink-0 border shadow-sm ${
                 role === 'kitchen'
                   ? 'bg-amber-500 text-stone-950 border-amber-300 shadow-amber-950/30'
                   : 'bg-amber-600 hover:bg-amber-500 text-stone-950 border-amber-500 hover:shadow-md hover:-translate-y-0.5'
@@ -121,7 +120,6 @@ export const Navbar: React.FC = () => {
               <span className="hidden xl:inline text-[10px] uppercase tracking-wide opacity-75">Live</span>
             </button>
 
-   </button>
           </nav>
 
           {/* Zone 3: Actions */}
