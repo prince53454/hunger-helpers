@@ -15,9 +15,9 @@ export function getMenuImage(image: string | undefined): string {
   if (!image?.trim()) return '';
 
   const normalized = image.trim().replace(/\\/g, '/');
-  const sourceAsset = normalized.match(/(?:^|\\/)src\\/assets\\/images\\/([^?#]+)/i);
-  if (sourceAsset) {
-    return bundledMenuImages[sourceAsset[1]] ?? '';
+  if (normalized.includes('/src/assets/images/')) {
+    const fileName = normalized.split('/').pop()?.split(/[?#]/, 1)[0];
+    if (fileName && bundledMenuImages[fileName]) return bundledMenuImages[fileName];
   }
 
   return normalized;
