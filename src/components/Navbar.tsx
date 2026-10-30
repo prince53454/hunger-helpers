@@ -92,12 +92,10 @@ export const Navbar: React.FC = () => {
               <span className="hidden xl:inline">Alerts</span>
             </button>
           )}
-          {role === 'customer' && (
-            <button type="button" onClick={openCart} aria-label={`Open cart, ${totalCartCount} items`} className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-extrabold text-stone-950 shadow-md shadow-amber-950/25 transition-all hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950">
+          <button type="button" onClick={openCart} aria-label={`Open cart, ${totalCartCount} items`} className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-extrabold text-stone-950 shadow-md shadow-amber-950/25 transition-all hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950">
               <ShoppingBag className="h-4 w-4" /><span>Cart</span>
               <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-stone-950 px-1.5 py-0.5 text-xs font-bold tabular-nums text-amber-300">{totalCartCount}</span>
             </button>
-          )}
         </div>
       </div>
     </header>
